@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Live Chat</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script> -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="styles/livechat.js"></script>
+    <link rel="stylesheet" href="styles/livechat.css">
+    <link rel='shortcut icon' type='image/x-icon' href='styles/favicon.ico' />
+    
+</head>
+<body>
+
+    <div class="chat_window">
+            <div class="top_menu">
+                <div class="buttons">
+                    <a href="/"><div class="button minimize"></div></a>
+                    <a href="/profile"><div class="button maximize"></div></a>
+                    <a href="/logout"><div class="button close"></div></a>
+                    
+                </div>
+                <div class="title">Chat  Room <svg class="tw-icon__svg" width="2.2%" height="2.2%" version="1.1" viewBox="0 0 20 20" x="0px" y="0px"><path d="M10 2c1.93 0 3.5 1.57 3.5 3.5S11.93 9 10 9 6.5 7.43 6.5 5.5 8.07 2 10 2zm6.447 10.105c.34.17.553.516.553.896v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4c0-.38.214-.726.552-.896.091-.045 2.26-1.104 6.448-1.104 4.187 0 6.357 1.06 6.447 1.104z" fill-rule="evenodd"></path></svg><small>{{ . }}</small></div>
+            </div>
+            <ul class="messages" id="log"></ul>
+            <div class="bottom_wrapper clearfix">
+                <form id="form">
+                    <div class="form-row">
+                            <div class="col-md-6 message_input_wrapper">
+                                    <input class="message_input" type="text" id="msg" size="64" placeholder="Type your message here..." />
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="send_message text btn btn-primary">Submit</button>
+                
+                                </div>
+                    </div>
+                
+                    
+                </form>
+            </div>
+        </div>
+
+    <!-- <form id="form">
+        <input type="submit" value="Send">
+        <input type="text" id="msg" size="64">
+    </form> -->
+</body>
+</html>

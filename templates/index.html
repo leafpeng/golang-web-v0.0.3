@@ -1,0 +1,33 @@
+
+{{ template "head" . }}
+
+<nav class="navbar navbar-dark bg-primary mb-3">
+    <a class="navbar-brand" href="#">Leaf Peng</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/profile">Profile</a>
+        <a class="nav-item nav-link" href="/livechat">Livechat</a>
+        <a class="nav-item nav-link" href="/logout">Logout</a>
+        <!-- <a class="nav-item nav-link" href="/delete">Deleteaccount</a> -->
+        
+        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ .UserName }}  &#128525;</a>
+      </div>
+    </div>
+</nav>
+
+    <!-- <nav class="navbar navbar-dark bg-primary mb-3">
+        <div class="container">
+            <a href="#" class="navbar-brand">Leaf Peng</a>
+        </div>
+            <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/livechat">LiveChat</a>
+            <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="/logout">Logout</a>
+    </nav> -->
+
+    <h2>Hi  {{ .UserName }}  !</h2>
+    
+    <img class="pic" src="styles/leaf.jpg">
+{{ template "footer" }}

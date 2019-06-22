@@ -1,0 +1,58 @@
+@keyframes welcome {
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 20px;
+        margin-bottom: 10px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+    }
+}
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+h2 {
+    text-align: center;
+    animation-name: welcome;
+    animation-fill-mode: forwards;
+    animation-duration: 4s;
+
+}
+.profile {
+    padding-right: 200px;
+    padding-bottom: 100px;
+    padding-left: 200px;
+    padding-top: 100px;
+}
+.pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #375a7f;
+  }
+  .container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+  }
