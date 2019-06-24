@@ -469,6 +469,8 @@ func resetPasswordGet(w http.ResponseWriter, r *http.Request) {
 
 func resetPasswordPost(w http.ResponseWriter, r *http.Request) {
 
+	host := r.Host
+
 	r.ParseForm()
 
 	email := r.PostForm.Get("email")
@@ -481,7 +483,7 @@ func resetPasswordPost(w http.ResponseWriter, r *http.Request) {
 	token := sID.String()
 	resetPasswordToken[token] = email
 
-	s := fmt.Sprintf("<a href='http://localhost:8080/confirm-password/?token=%s'>Reset Password</a>", token)
+	s := fmt.Sprintf("<a href='http://%s/confirm-password/?token=%s'>Reset Password</a>", host, token)
 	log.Println(s)
 	// log.Println(outlook)
 	m := gomail.NewMessage()
