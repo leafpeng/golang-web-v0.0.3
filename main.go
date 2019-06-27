@@ -467,6 +467,13 @@ func resetPasswordGet(w http.ResponseWriter, r *http.Request) {
 	tpl.ExecuteTemplate(w, "reset-password.html", nil)
 }
 
+// helper function for run goroutine on emailSender
+func emailSender(d *gomail.Dialer, m *gomail.Message) {
+	if err := d.DialAndSend(m); err != nil {
+		panic(err)
+	}
+}
+
 func resetPasswordPost(w http.ResponseWriter, r *http.Request) {
 
 	host := r.Host
@@ -496,9 +503,11 @@ func resetPasswordPost(w http.ResponseWriter, r *http.Request) {
 	d := gomail.NewDialer("smtp.office365.com", 587, outlook, outlookPW)
 
 	// Send the email to Bob, Cora and Dan.
-	if err := d.DialAndSend(m); err != nil {
-		panic(err)
-	}
+	// if err := d.DialAndSend(m); err != nil {
+	// 	panic(err)
+	// }
+	go emailSender(d, m)
+
 	log.Println("email sent.")
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
