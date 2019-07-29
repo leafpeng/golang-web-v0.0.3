@@ -63,8 +63,8 @@ func main() {
 	r := mux.NewRouter()
 
 	r.PathPrefix("/styles/").Handler(http.StripPrefix("/styles/", http.FileServer(http.Dir("./styles"))))
-	r.PathPrefix("/reset-password/styles/").Handler(http.StripPrefix("/reset-password/styles/", http.FileServer(http.Dir("./styles"))))
-	r.PathPrefix("/confirm-password/styles/").Handler(http.StripPrefix("/confirm-password/styles/", http.FileServer(http.Dir("./styles"))))
+	// r.PathPrefix("/reset-password/styles/").Handler(http.StripPrefix("/reset-password/styles/", http.FileServer(http.Dir("./styles"))))
+	// r.PathPrefix("/confirm-password/styles/").Handler(http.StripPrefix("/confirm-password/styles/", http.FileServer(http.Dir("./styles"))))
 	r.HandleFunc("/", index).Methods("GET")
 	r.HandleFunc("/livechat", func(w http.ResponseWriter, r *http.Request) {
 		livechat(hub, w, r)
@@ -476,14 +476,16 @@ func emailSender(d *gomail.Dialer, m *gomail.Message) {
 
 func resetPasswordPost(w http.ResponseWriter, r *http.Request) {
 
-	host := r.Host
-
 	r.ParseForm()
+
+	host := r.Host
 
 	email := r.PostForm.Get("email")
 	log.Printf("email: %v try to reset password.", email)
 	outlook := os.Getenv("EMAIL_OUTLOOK")
 	outlookPW := os.Getenv("EMAIL_OUTLOOK_PW")
+	// outlook := "659114199@qq.com"
+	// outlookPW := "pdcrtbogixarbahg"
 
 	sID := uuid.NewV4()
 
